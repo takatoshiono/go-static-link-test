@@ -2,7 +2,7 @@ FROM golang:1.10
 
 WORKDIR /go/src/app
 COPY main.go .
-RUN go build main.go
+RUN go build -a -tags netgo -installsuffix netgo main.go
 
 FROM alpine:latest
 
