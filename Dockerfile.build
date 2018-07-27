@@ -1,0 +1,9 @@
+FROM golang:1.10
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    file \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /go/src/app
+COPY main.go .
+COPY build-and-check-file.sh .
