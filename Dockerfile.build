@@ -2,7 +2,11 @@ FROM golang:1.10
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     file \
+    tree \
     && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /go/src/github.com/takatoshiono/go-static-link-test/pkg
+COPY pkg .
 
 WORKDIR /go/src/app
 COPY main.go .

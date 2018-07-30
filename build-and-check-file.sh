@@ -2,14 +2,22 @@
 
 set -x
 
-go build main.go
-file main
+tree /go
 
-go build -a -tags netgo -installsuffix netgo main.go
+go build -i main.go
 file main
+ls -l main
+tree /go/pkg
 
-go build -ldflags '-extldflags "-static"' main.go
+go build -i -a -tags netgo -installsuffix netgo main.go
 file main
+ls -l main
+tree /go/pkg
+
+go build -i -ldflags '-extldflags "-static"' main.go
+file main
+ls -l main
 
 CGO_ENABLED=0 go build main.go
 file main
+ls -l main

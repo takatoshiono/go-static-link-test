@@ -2,14 +2,15 @@ package main
 
 import (
 	"fmt"
-	"net"
 	"os"
+
+	"github.com/takatoshiono/go-static-link-test/pkg/mynet"
 )
 
 func main() {
 	fmt.Println("hello world.")
 
-	addrs, err := net.LookupHost("golang.org")
+	addrs, err := mynet.LookupHost("golang.org")
 	if err != nil {
 		fmt.Printf("failed to lookup: %v\n", err)
 		os.Exit(1)
