@@ -39,4 +39,7 @@ main: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, no
 + go build -ldflags -extldflags "-static" main.go
 + file main
 main: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, not stripped
++ CGO_ENABLED=0 go build main.go
++ file main
+main: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, not stripped
 ```
